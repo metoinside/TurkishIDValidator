@@ -2,14 +2,11 @@
 
 from odoo import models, fields, api
 
-# class turkish_idvalidator(models.Model):
-#     _name = 'turkish_idvalidator.turkish_idvalidator'
+class turkish_idvalidator(models.Model):
+    _inherit = 'res.users'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+    lastname= fields.Char(string="Last Name")
+    birthYear = fields.Integer(string="Birth Year")
+    turkishIdNumber = fields.Char(string="Turkish ID No")
+    verification = fields.Boolean(string="Verification Status", default=True)
+    validation = fields.Boolean(string="Validation Status", default=False)
